@@ -1,0 +1,5 @@
+#!/bin/sh
+
+sed -i -e 's#<option name="WindowState" value="2"/>##' ~/.FBReader/ui.xml
+exec FBReader "/home/uj/librusec/united/$1.fb2" &>/dev/null &
+

@@ -1,0 +1,9 @@
+#!/bin/sh
+
+for WINDOW in `xdotool search --name FBReader`; do
+  xdotool key --window "$WINDOW" q
+done
+sleep 2
+sed -i -e 's#<option name="WindowState" value="2"/>##' ~/.FBReader/ui.xml
+exec FBReader "~/librusec/united/$1.fb2" &>/dev/null &
+

@@ -1,0 +1,4 @@
+#!/bin/sh
+cp "/home/uj/librusec/united/$1.fb2" /tmp &&
+exec cr3 "/tmp/$1.fb2" &>/dev/null &
+
