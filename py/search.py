@@ -20,13 +20,14 @@ def process(q):
             print(' [' + el[3] + ']', end='')
         print()
         if options.copy:
+            src = COPYSRC + str(el[0]) + '.fb2'
             dst = el[1].replace('/', '\\').replace(':', '.').replace('?', '').replace('"', '')
             if el[2] and el[2].isdigit():
                 dst += ' (' + el[2] + ')'
             try:
-                shutil.copy(COPYSRC + str(el[0]) + '.fb2', dst + '.fb2')
-            except IOError:
-                pass
+                shutil.copy(src, dst + '.fb2')
+            except IOError as e:
+                print('Error copying %s: %s' % (src, e))
 
 if len(sys.argv) == 1:
     sys.argv.append('-h')
